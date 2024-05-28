@@ -39,12 +39,8 @@ function IsoscelesTriangle(equalSide, base) {
   EquilateralTriangle.call(this, equalSide);
   this.base = base;
 
-  IsoscelesTriangle.calculateArea = function(base, equalSide) {
-    return (base / 4) * Math.sqrt(4 * (equalSide ** 2) - (base ** 2));
-  };
-
   this.calculateArea = function() {
-    const area = IsoscelesTriangle.calculateArea(this.base, this.equalSide());
+    const area = (this.base / 4) * Math.sqrt(4 * (this.equalSide() ** 2) - (this.base ** 2));
     console.log("Площа рівнобедреного трикутника: " + area);
     return area;
   };
@@ -62,7 +58,7 @@ function AddGenerator(initialNumber) {
 }
 
 const addFive = AddGenerator(5);
-console.log(addFive(10));
+console.log(addFive(10)); 
 
 const addTen = AddGenerator(10);
-console.log(addTen(7));
+console.log(addTen(7));  
