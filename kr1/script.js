@@ -49,3 +49,16 @@ class IsoscelesTriangle extends EquilateralTriangle {
 const myIsoscelesTriangle = new IsoscelesTriangle(5, 6);
 console.log(IsoscelesTriangle.calculateArea(myIsoscelesTriangle.equalSide, myIsoscelesTriangle.base));
 
+function AddGenerator(initialNumber) {
+  return function(numberToAdd) {
+    return initialNumber + numberToAdd;
+  };
+}
+
+const addFive = AddGenerator(5);
+console.log(addFive(10)); // Виведе 15
+
+const addTen = AddGenerator(10);
+console.log(addTen(7)); // Виведе 17
+
+
