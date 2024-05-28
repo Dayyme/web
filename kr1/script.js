@@ -13,41 +13,43 @@ function Jet(color, avgSpeed, maxAltitude, brand, pointOfDestination) {
   this.maxAltitude = maxAltitude;
   this.brand = brand;
   this.pointOfDestination = pointOfDestination;
-
-  this.AssignPilot = function(name, yearsOfExperience, hasChildren) {
-    this.pilot = {
-      name: name,
-      yearsOfExperience: yearsOfExperience,
-      hasChildren: hasChildren
-    };
-  };
 }
 
-const myJet = new Jet("Red", 800, 12000, "Boeing", "New York");
+Jet.prototype.AssignPilot = function(name, yearsOfExperience, hasChildren) {
+  this.pilot = {
+    name: name,
+    yearsOfExperience: yearsOfExperience,
+    hasChildren: hasChildren
+  };
+};
+
+const myJet = new Jet("Red", 800, 1200, "Boeing", "New York");
 myJet.AssignPilot("John Doe", 15, true);
 console.log(myJet);
 
-function EquilateralTriangle(equalSide) {
-  this._equalSide = equalSide;
+class EquilateralTriangle {
+  constructor(equalSide) {
+    this._equalSide = equalSide;
+  }
 
-  this.equalSide = function() {
+  get equalSide() {
     return this._equalSide;
-  };
+  }
 }
 
-function IsoscelesTriangle(equalSide, base) {
-  EquilateralTriangle.call(this, equalSide);
-  this.base = base;
+class IsoscelesTriangle extends EquilateralTriangle {
+  constructor(equalSide, base) {
+    super(equalSide);
+    this.base = base;
+  }
 
-  this.calculateArea = function() {
-    const area = (this.base / 4) * Math.sqrt(4 * (this.equalSide() ** 2) - (this.base ** 2));
-    console.log("Площа рівнобедреного трикутника: " + area);
-    return area;
-  };
+  static calculateArea(base, equalSide) {
+    return (base / 4) * Math.sqrt(4 * (equalSide ** 2) - (base ** 2));
+  }
 }
 
 const myIsoscelesTriangle = new IsoscelesTriangle(5, 6);
-console.log(myIsoscelesTriangle.calculateArea());
+console.log(IsoscelesTriangle.calculateArea(myIsoscelesTriangle.base, myIsoscelesTriangle.equalSide));
 
 function AddGenerator(initialNumber) {
   return function(numberToAdd) {
