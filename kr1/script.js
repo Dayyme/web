@@ -2,6 +2,7 @@ function triangleArea(base = 5, height = 4) {
   const area = (base * height) / 2;
   console.log("Площа трикутника: " + area);
   return area;
+  
 }
 
 console.log(triangleArea(3, 6));
@@ -27,29 +28,36 @@ const myJet = new Jet("Red", 800, 1200, "Boeing", "New York");
 myJet.AssignPilot("John Doe", 15, true);
 console.log(myJet);
 
-class EquilateralTriangle {
-  constructor(equalSide) {
-    this._equalSide = equalSide;
-  }
 
-  get equalSide() {
-    return this._equalSide;
-  }
+class EquilateralTriangle {
+    constructor(equalSide) {
+        this._equalSide = equalSide;
+    }
+
+    get equalSide() {
+        return this._equalSide;
+    }
 }
 
 class IsoscelesTriangle extends EquilateralTriangle {
-  constructor(equalSide, base) {
-    super(equalSide);
-    this.base = base;
-  }
+    constructor(equalSide, base) {
+        super(equalSide);
+        this.base = base;
+    }
 
-  static calculateArea(base, equalSide) {
-    return (base / 4) * Math.sqrt(4 * (equalSide ** 2) - (base ** 2));
-  }
+    static calculateArea(equalSide, base) {
+        return (base / 4) * Math.sqrt(4 * (equalSide ** 2) - (base ** 2));
+    }
 }
 
-const myIsoscelesTriangle = new IsoscelesTriangle(5, 6);
-console.log(IsoscelesTriangle.calculateArea(myIsoscelesTriangle.base, myIsoscelesTriangle.equalSide));
+const equilateralTriangle = new EquilateralTriangle(5);
+console.log('Equilateral Triangle:', equilateralTriangle.equalSide);
+
+const isoscelesTriangle = new IsoscelesTriangle(5, 6);
+console.log('Isosceles Triangle:', isoscelesTriangle.equalSide);
+
+const area = IsoscelesTriangle.calculateArea(isoscelesTriangle.equalSide, isoscelesTriangle.base);
+console.log('Area of Isosceles Triangle:', area);
 
 function AddGenerator(initialNumber) {
   return function(numberToAdd) {
