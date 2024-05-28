@@ -12,28 +12,36 @@ window.onload = function() {
         resultDisplay.textContent = "Error: " + message;
     }
 
+    function clearInfo() {
+        infoDiv.innerHTML = "";
+    }
+
     document.getElementById("add-button").onclick = function() {
+        clearInfo();
         var result = parseFloat(op1Input.value) + parseFloat(op2Input.value);
         displayResult(result);
     };
 
     document.getElementById("sub-button").onclick = function() {
+        clearInfo();
         var result = parseFloat(op1Input.value) - parseFloat(op2Input.value);
         displayResult(result);
     };
 
     document.getElementById("mul-button").onclick = function() {
+        clearInfo();
         var result = parseFloat(op1Input.value) * parseFloat(op2Input.value);
         displayResult(result);
     };
 
     document.getElementById("div-button").onclick = function() {
+        clearInfo();
         var divisor = parseFloat(op2Input.value);
         if (divisor !== 0 && !isNaN(divisor)) {
             var result = parseFloat(op1Input.value) / divisor;
             displayResult(result);
         } else {
-            displayError("Division by  0!");
+            displayError("Division by 0!");
         }
     };
 
@@ -56,7 +64,7 @@ window.onload = function() {
     document.getElementById("sin-button").onclick = function() {
         var operand = parseFloat(op1Input.value);
         if (!isNaN(operand)) {
-            var result = Math.sin((operand * Math.PI) / 180); 
+            var result = Math.sin((operand * Math.PI) / 180);
             displayResult(result);
             fetch("sin.json")
                 .then((response) => response.json())
@@ -72,7 +80,7 @@ window.onload = function() {
     document.getElementById("tan-button").onclick = function() {
         var operand = parseFloat(op1Input.value);
         if (!isNaN(operand)) {
-            var result = Math.tan((operand * Math.PI) / 180); 
+            var result = Math.tan((operand * Math.PI) / 180);
             displayResult(result);
             fetch("tan.json")
                 .then((response) => response.json())
