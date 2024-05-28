@@ -56,9 +56,9 @@ function AddGenerator(initialNumber) {
 }
 
 const addFive = AddGenerator(5);
-console.log(addFive(10)); // Виведе 15
+console.log(addFive(10)); 
 
 const addTen = AddGenerator(10);
-console.log(addTen(7)); // Виведе 17
+console.log(addTen(7)); 
 
 
