@@ -23,7 +23,6 @@ class Square {
     }
 }
 
-
 class Rectangle extends Square {
     constructor(a, b) {
         super(a);
@@ -32,6 +31,14 @@ class Rectangle extends Square {
 
     static help() {
         console.log("Прямокутник - це геометрична фігура з двома паралельними протилежними сторонами, які мають однакові довжини.");
+    }
+
+    get width() {
+        return this.b;
+    }
+
+    set width(value) {
+        this.b = value;
     }
 
     length() {
@@ -51,7 +58,6 @@ class Rectangle extends Square {
     }
 }
 
-
 class Rhombus extends Square {
     constructor(a, alpha, beta) {
         super(a);
@@ -61,6 +67,22 @@ class Rhombus extends Square {
 
     static help() {
         console.log("Ромб - це геометрична фігура з чотирма однаковими сторонами, у якого всі кути рівні.");
+    }
+
+    get acuteAngle() {
+        return this.alpha;
+    }
+
+    set acuteAngle(value) {
+        this.alpha = value;
+    }
+
+    get obtuseAngle() {
+        return this.beta;
+    }
+
+    set obtuseAngle(value) {
+        this.beta = value;
     }
 
     length() {
@@ -80,7 +102,6 @@ class Rhombus extends Square {
         console.log("Площа:", this.a ** 2 * Math.sin(this.alpha * Math.PI / 180));
     }
 }
-
 
 class Parallelogram extends Rectangle {
     constructor(a, b, alpha, beta) {
@@ -126,4 +147,3 @@ mySquare.info();
 myRectangle.info();
 myRhombus.info();
 myParallelogram.info();
-
